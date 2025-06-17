@@ -1,0 +1,1 @@
+"bin/\n*.exe\n*.exe~\n*.dll\n*.so\n*.dylib\nvendor/\n*.test\n*.out\n*.log\n" 
