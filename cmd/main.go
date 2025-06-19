@@ -19,11 +19,13 @@ func main() {
 	// Enable CORS
 	allowedOrigins := os.Getenv("ALLOWED_ORIGINS")
 	if allowedOrigins == "" {
-		allowedOrigins = "http://localhost:3000"
+		allowedOrigins = "http://54.179.30.47:3000"
 	}
+
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: allowedOrigins,
-		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
+		AllowOrigins:     allowedOrigins,
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
+		AllowCredentials: true,
 	}))
 
 	// Create handlers (controllers)
