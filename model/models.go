@@ -9,17 +9,19 @@ import (
 type User struct {
 	gorm.Model
 	ID           uint   `gorm:"primaryKey" json:"id"`
-	Username     string `gorm:"unique;not null" json:"username"`
-	PasswordHash string `gorm:"not null" json:"password_hash"`
+	Email        string `gorm:"unique;not null" json:"email"`
+	FullName     string `gorm:"not null" json:"full_name"`
+	PasswordHash string `gorm:"not null" json:"-"`
 }
 
 type Quote struct {
 	gorm.Model
-	ID        uint   `gorm:"primaryKey" json:"id"`
-	Text      string `json:"text"`
-	Author    string `json:"author"`
-	Votes     int    `json:"votes"`
-	CreatedBy uint   `json:"created_by"`
+	ID        uint      `gorm:"primaryKey" json:"id"`
+	Text      string    `json:"text"`
+	Author    string    `json:"author"`
+	Votes     int       `json:"votes"`
+	CreatedBy uint      `json:"created_by"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 type Vote struct {
